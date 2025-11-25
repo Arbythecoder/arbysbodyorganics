@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View product details and ingredients">
+    
+    <title>Product Details | Arby's Body Organics</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/components/navbar.css">
+    <link rel="stylesheet" href="/css/components/product-detail.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar bg-primary text-white py-2">
+        <div class="container text-center">
+            <p class="mb-0">🌿 Free Shipping on Orders Over ₦20,000</p>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <!-- Navigation content will be loaded dynamically -->
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section section-padding">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/pages/products.html">Shop</a></li>
+                    <li class="breadcrumb-item active product-name" aria-current="page">Product Name</li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <!-- Product Images -->
+                <div class="col-lg-6">
+                    <div class="product-images">
+                        <div class="main-image mb-3">
+                            <img src="" alt="" id="mainImage" class="img-fluid rounded">
+                        </div>
+                        <div class="thumbnail-images d-flex">
+                            <!-- Thumbnail images will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-lg-6">
+                    <div class="product-info">
+                        <h1 class="product-title mb-3"></h1>
+                        <div class="product-price mb-4">
+                            <span class="current-price"></span>
+                            <span class="original-price text-decoration-line-through text-muted ms-2"></span>
+                        </div>
+
+                        <div class="product-description mb-4"></div>
+
+                        <!-- Add to Cart Section -->
+                        <div class="add-to-cart-section mb-4">
+                            <div class="quantity-selector d-flex align-items-center mb-3">
+                                <button class="btn btn-outline-secondary" id="decreaseQuantity">-</button>
+                                <input type="number" class="form-control mx-2" id="quantity" value="1" min="1" max="99">
+                                <button class="btn btn-outline-secondary" id="increaseQuantity">+</button>
+                            </div>
+                            <button class="btn btn-primary btn-lg w-100 mb-2" id="addToCart">
+                                Add to Cart
+                            </button>
+                            <div class="stock-status mb-3">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>In Stock</span>
+                            </div>
+                        </div>
+
+                        <!-- Product Features -->
+                        <div class="product-features mb-4">
+                            <div class="feature">
+                                <i class="fas fa-leaf"></i>
+                                <span>100% Organic Ingredients</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-truck"></i>
+                                <span>Free Shipping Over ₦20,000</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Checkout</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details Tabs -->
+            <div class="product-details-tabs mt-5">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#ingredients">
+                            Ingredients
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#howToUse">
+                            How to Use
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">
+                            Reviews
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content p-4 border border-top-0 rounded-bottom">
+                    <div class="tab-pane fade show active" id="ingredients">
+                        <!-- Ingredients content will be loaded dynamically -->
+                    </div>
+                    <div class="tab-pane fade" id="howToUse">
+                        <!-- Usage instructions will be loaded dynamically -->
+                    </div>
+                    <div class="tab-pane fade" id="reviews">
+                        <!-- Reviews will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products mt-5">
+                <h3 class="section-title mb-4">You May Also Like</h3>
+                <div class="row" id="relatedProducts">
+                    <!-- Related products will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <!-- Cart content will be loaded dynamically -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-light mt-5">
+        <!-- Footer content will be loaded dynamically -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="/js/utils/helpers.js" type="module"></script>
+    <script src="/js/app.js" type="module"></script>
+    <script src="/js/components/product-detail.js" type="module"></script>
+</body>
+</html>

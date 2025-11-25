@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Checkout - Arby's Body Organics">
+    <title>Checkout | Arby's Body Organics</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Arby's Body Organics</a>
+            <div class="text-muted">
+                <i class="bi bi-lock-fill"></i> Secure Checkout
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Steps -->
+    <div class="container my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="d-flex justify-content-between mb-4">
+                    <div class="text-center step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <small>Shipping</small>
+                    </div>
+                    <div class="text-center step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <small>Payment</small>
+                    </div>
+                    <div class="text-center step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <small>Review</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Form -->
+    <section class="pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 fade-in">
+                    <!-- Step 1: Shipping Information -->
+                    <div class="checkout-step" id="step1">
+                        <h4 class="fw-bold mb-4">Shipping Information</h4>
+                        <form id="shippingForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">First Name *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Last Name *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Email *</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Address *</label>
+                                    <input type="text" class="form-control" placeholder="Street address" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">City *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">State *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">ZIP Code *</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="sameAsBilling">
+                                        <label class="form-check-label" for="sameAsBilling">
+                                            Billing address same as shipping
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary mt-4" onclick="nextStep(2)">
+                                Continue to Payment
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Step 2: Payment Information -->
+                    <div class="checkout-step d-none" id="step2">
+                        <h4 class="fw-bold mb-4">Payment Information</h4>
+                        <form id="paymentForm">
+                            <div class="mb-4">
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="paymentMethod" id="creditCard" checked>
+                                    <label class="btn btn-outline-primary" for="creditCard">
+                                        <i class="bi bi-credit-card"></i> Credit Card
+                                    </label>
+                                    <input type="radio" class="btn-check" name="paymentMethod" id="paypal">
+                                    <label class="btn btn-outline-primary" for="paypal">
+                                        <i class="bi bi-paypal"></i> PayPal
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div id="cardForm">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label class="form-label">Card Number *</label>
+                                        <input type="text" class="form-control" placeholder="1234 5678 9012 3456" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Cardholder Name *</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Expiry Date *</label>
+                                        <input type="text" class="form-control" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">CVV *</label>
+                                        <input type="text" class="form-control" placeholder="123" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2 mt-4">
+                                <button type="button" class="btn btn-outline-secondary" onclick="prevStep(1)">Back</button>
+                                <button type="button" class="btn btn-primary" onclick="nextStep(3)">Review Order</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 3: Review & Place Order -->
+                    <div class="checkout-step d-none" id="step3">
+                        <h4 class="fw-bold mb-4">Review Your Order</h4>
+
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6 class="fw-bold">Shipping Address</h6>
+                                <p class="mb-0 text-muted" id="reviewShipping">-</p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6 class="fw-bold">Payment Method</h6>
+                                <p class="mb-0 text-muted" id="reviewPayment">-</p>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                I agree to the <a href="#">Terms & Conditions</a>
+                            </label>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-outline-secondary" onclick="prevStep(2)">Back</button>
+                            <button type="button" class="btn btn-success" id="placeOrderBtn">
+                                <i class="bi bi-check-circle"></i> Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="col-lg-5 fade-in" style="animation-delay: 0.2s">
+                    <div class="card shadow-sm sticky-top" style="top: 100px">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold mb-4">Order Summary</h5>
+                            <div id="orderItems" class="mb-3">
+                                <!-- Items will be loaded here -->
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span id="summarySubtotal">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping:</span>
+                                <span id="summaryShipping">$5.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax:</span>
+                                <span id="summaryTax">$0.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <strong>Total:</strong>
+                                <strong class="text-primary" id="summaryTotal">$0.00</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Paystack Payment -->
+    <script src="../js/components/paystack-payment.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/utils/helpers.js"></script>
+    <script src="../js/components/checkout.js"></script>
+
+    <style>
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 5px;
+            font-weight: bold;
+        }
+        .step.active .step-circle {
+            background: var(--bs-primary);
+            color: white;
+        }
+    </style>
+</body>
+</html>

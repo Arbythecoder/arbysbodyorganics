@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beauty Blog - Arby's Body Organics">
+    <title>Blog | Arby's Body Organics</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">Arby's Body Organics</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="all-products.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Academy</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="bi bi-person"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html"><i class="bi bi-cart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="py-5 bg-light fade-in">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Beauty Journal</h1>
+                    <p class="lead text-muted">Expert skincare tips, natural beauty secrets, and wellness guides</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group shadow-sm">
+                        <input type="text" class="form-control form-control-lg" placeholder="Search articles..." id="blogSearch">
+                        <button class="btn btn-primary" type="button">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-4 border-bottom fade-in">
+        <div class="container">
+            <div class="d-flex gap-2 flex-wrap">
+                <button class="btn btn-outline-primary btn-sm active" data-category="all">All</button>
+                <button class="btn btn-outline-primary btn-sm" data-category="skincare">Skincare</button>
+                <button class="btn btn-outline-primary btn-sm" data-category="ingredients">Ingredients</button>
+                <button class="btn btn-outline-primary btn-sm" data-category="routines">Routines</button>
+                <button class="btn btn-outline-primary btn-sm" data-category="wellness">Wellness</button>
+                <button class="btn btn-outline-primary btn-sm" data-category="tips">Tips & Tricks</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div id="blogPosts" class="row g-4">
+                        <!-- Featured Post -->
+                        <div class="col-12 fade-in">
+                            <div class="card border-0 shadow-sm overflow-hidden hover-lift">
+                                <div class="row g-0">
+                                    <div class="col-md-5">
+                                        <img src="../images/blog-featured.jpg" class="img-fluid w-100 h-100 object-fit-cover" alt="Featured Post"
+                                             onerror="this.src='https://via.placeholder.com/600x400?text=Featured+Post'">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-body p-4">
+                                            <span class="badge bg-primary mb-2">Featured</span>
+                                            <h3 class="card-title fw-bold">The Ultimate Guide to Organic Skincare</h3>
+                                            <p class="card-text text-muted">Discover the transformative power of natural ingredients and learn how to build a truly effective organic skincare routine...</p>
+                                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                                <small class="text-muted">
+                                                    <i class="bi bi-calendar3"></i> Jan 15, 2025
+                                                </small>
+                                                <a href="blog-post.html?id=1" class="btn btn-outline-primary btn-sm">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Regular Posts -->
+                        <div class="col-md-6 fade-in" style="animation-delay: 0.1s">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <img src="../images/blog-1.jpg" class="card-img-top" alt="Blog Post"
+                                     onerror="this.src='https://via.placeholder.com/600x400?text=Skincare+Tips'">
+                                <div class="card-body">
+                                    <span class="badge bg-secondary mb-2">Skincare</span>
+                                    <h5 class="card-title fw-bold">5 Morning Skincare Habits for Glowing Skin</h5>
+                                    <p class="card-text text-muted">Start your day with these simple yet effective skincare practices...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted"><i class="bi bi-clock"></i> 5 min read</small>
+                                        <a href="blog-post.html?id=2" class="text-primary text-decoration-none">Read →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 fade-in" style="animation-delay: 0.2s">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <img src="../images/blog-2.jpg" class="card-img-top" alt="Blog Post"
+                                     onerror="this.src='https://via.placeholder.com/600x400?text=Natural+Ingredients'">
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">Ingredients</span>
+                                    <h5 class="card-title fw-bold">Hyaluronic Acid: Nature's Moisture Magnet</h5>
+                                    <p class="card-text text-muted">Learn why this powerful natural ingredient is essential for hydrated skin...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted"><i class="bi bi-clock"></i> 7 min read</small>
+                                        <a href="blog-post.html?id=3" class="text-primary text-decoration-none">Read →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 fade-in" style="animation-delay: 0.3s">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <img src="../images/blog-3.jpg" class="card-img-top" alt="Blog Post"
+                                     onerror="this.src='https://via.placeholder.com/600x400?text=Wellness+Tips'">
+                                <div class="card-body">
+                                    <span class="badge bg-warning mb-2">Wellness</span>
+                                    <h5 class="card-title fw-bold">Beauty Sleep: Nighttime Skincare Rituals</h5>
+                                    <p class="card-text text-muted">Transform your skin while you sleep with these nighttime routines...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted"><i class="bi bi-clock"></i> 6 min read</small>
+                                        <a href="blog-post.html?id=4" class="text-primary text-decoration-none">Read →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 fade-in" style="animation-delay: 0.4s">
+                            <div class="card border-0 shadow-sm h-100 hover-lift">
+                                <img src="../images/blog-4.jpg" class="card-img-top" alt="Blog Post"
+                                     onerror="this.src='https://via.placeholder.com/600x400?text=Skincare+Routine'">
+                                <div class="card-body">
+                                    <span class="badge bg-info mb-2">Routines</span>
+                                    <h5 class="card-title fw-bold">Building Your Perfect Skincare Routine</h5>
+                                    <p class="card-text text-muted">A step-by-step guide to creating a routine that works for your skin...</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted"><i class="bi bi-clock"></i> 8 min read</small>
+                                        <a href="blog-post.html?id=5" class="text-primary text-decoration-none">Read →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="mt-5 fade-in">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4 fade-in" style="animation-delay: 0.2s">
+                    <!-- Newsletter -->
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold mb-3">Newsletter</h5>
+                            <p class="text-muted small">Get weekly beauty tips and exclusive offers</p>
+                            <form id="newsletterForm">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your email" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Popular Posts -->
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0 fw-bold">Popular Posts</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <small class="text-muted">Skincare</small>
+                                    <p class="mb-1 fw-bold">Top 10 Natural Ingredients</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <small class="text-muted">Tips</small>
+                                    <p class="mb-1 fw-bold">Anti-Aging Secrets</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <small class="text-muted">Wellness</small>
+                                    <p class="mb-1 fw-bold">Hydration for Healthy Skin</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-white">
+                            <h5 class="mb-0 fw-bold">Tags</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-light text-dark">Natural</span>
+                                <span class="badge bg-light text-dark">Organic</span>
+                                <span class="badge bg-light text-dark">Skincare</span>
+                                <span class="badge bg-light text-dark">Anti-Aging</span>
+                                <span class="badge bg-light text-dark">Hydration</span>
+                                <span class="badge bg-light text-dark">Wellness</span>
+                                <span class="badge bg-light text-dark">Beauty Tips</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Video Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h2 class="fw-bold mb-3">Watch Our Skincare Tutorials</h2>
+                <p class="lead text-muted">Subscribe to our YouTube channel for more beauty tips and product demonstrations</p>
+                <a href="https://youtube.com/@arbysskincaretips?si=BHhFfjeLod-vD7Jg" target="_blank" class="btn btn-danger btn-lg">
+                    <i class="bi bi-youtube"></i> Subscribe to Our Channel
+                </a>
+            </div>
+
+            <div class="row g-4">
+                <!-- Video 1 -->
+                <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: 0.1s">
+                    <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="How to Build Your Organic Skincare Routine"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">How to Build Your Organic Skincare Routine</h5>
+                            <p class="text-muted small">Learn the perfect order to apply your skincare products for maximum effectiveness.</p>
+                            <a href="https://youtube.com/@arbysskincaretips?si=BHhFfjeLod-vD7Jg" target="_blank" class="btn btn-sm btn-outline-danger">
+                                Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: 0.2s">
+                    <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="Natural Face Mask DIY Tutorial"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Natural Face Mask DIY Tutorial</h5>
+                            <p class="text-muted small">Make your own organic face masks at home with simple kitchen ingredients.</p>
+                            <a href="https://youtube.com/@arbysskincaretips?si=BHhFfjeLod-vD7Jg" target="_blank" class="btn btn-sm btn-outline-danger">
+                                Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: 0.3s">
+                    <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="Fighting Acne Naturally - Complete Guide"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Fighting Acne Naturally - Complete Guide</h5>
+                            <p class="text-muted small">Discover natural remedies and products that clear acne without harsh chemicals.</p>
+                            <a href="https://youtube.com/@arbysskincaretips?si=BHhFfjeLod-vD7Jg" target="_blank" class="btn btn-sm btn-outline-danger">
+                                Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: 0.4s">
+                    <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="Glow Up Morning Skincare Routine"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Glow Up Morning Skincare Routine</h5>
+                            <p class="text-muted small">Start your day right with this energizing morning skincare routine for glowing skin.</p>
+                            <a href="https://youtube.com/@arbysskincaretips?si=BHhFfjeLod-vD7Jg" target="_blank" class="btn btn-sm btn-outline-danger">
+                                Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: 0.5s">
+                    <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="Understanding Your Skin Type"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Understanding Your Skin Type</h5>
+                            <p class="text-muted small">Identify your skin type and learn which products work best for you.</p>
+                            <a href="https://youtube.com/@arbysskincaretips?si=BHhFfjeLod-vD7Jg" target="_blank" class="btn btn-sm btn-outline-danger">
+                                Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="col-md-6 col-lg-4 fade-in" style="animation-delay: 0.6s">
+                    <div class="card border-0 shadow-sm h-100 hover-lift">
+                        <div class="ratio ratio-16x9">
+                            <iframe
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="Product Review: Our Best Sellers"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Product Review: Our Best Sellers</h5>
+                            <p class="text-muted small">See our most popular products in action and hear real customer testimonials.</p>
+                            <a href="https://youtube.com/@arbysskincaretips?si=BHhFfjeLod-vD7Jg" target="_blank" class="btn btn-sm btn-outline-danger">
+                                Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Arby's Body Organics</h5>
+                    <p class="text-muted">100% Natural. 100% Effective.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Follow Us</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-instagram fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/components/blog.js"></script>
+
+    <style>
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        .object-fit-cover {
+            object-fit: cover;
+        }
+    </style>
+</body>
+</html>

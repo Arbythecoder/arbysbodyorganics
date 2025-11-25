@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skin Quiz - Arby's Body Organics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/components/quiz.css">
+    <link rel="stylesheet" href="/css/components/animations.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <!-- Navigation content will be injected by app.js -->
+    </nav>
+
+    <main class="container mt-5 pt-5">
+        <div id="quiz-container" class="animate-fade-in">
+            <!-- Quiz Welcome Screen -->
+            <div id="quiz-welcome" class="text-center py-5">
+                <h1 class="display-4 mb-4">Discover Your Perfect Skincare Routine</h1>
+                <p class="lead mb-4">Take our AI-powered skin analysis quiz and get personalized product recommendations tailored just for you.</p>
+                <button id="start-quiz" class="btn btn-primary btn-lg px-5 hover-lift">
+                    Start Your Skin Journey
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+
+            <!-- Quiz Progress -->
+            <div id="quiz-progress" class="mb-4 d-none">
+                <div class="progress" style="height: 8px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <span class="text-muted">Question <span id="current-question">1</span> of <span id="total-questions">8</span></span>
+                    <span class="text-muted"><i class="fas fa-clock me-1"></i><span id="time-remaining">2:00</span></span>
+                </div>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="questions-container" class="d-none">
+                <!-- Questions will be dynamically inserted here -->
+            </div>
+
+            <!-- Quiz Results -->
+            <div id="quiz-results" class="d-none">
+                <div class="text-center mb-5 animate-fade-up">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle text-success display-1"></i>
+                    </div>
+                    <h2 class="display-5 mb-4">Your Personalized Skincare Routine</h2>
+                    <p class="lead">Based on your unique skin profile, we've curated the perfect collection of products for you.</p>
+                </div>
+                
+                <div class="row g-4 stagger-children" id="recommended-products">
+                    <!-- Product recommendations will be dynamically inserted here -->
+                </div>
+
+                <div class="text-center mt-5 pt-3 animate-fade-up">
+                    <button id="save-results" class="btn btn-primary btn-lg mb-3">
+                        <i class="fas fa-save me-2"></i>
+                        Save My Results
+                    </button>
+                    <p class="text-muted">Create an account to save your results and get 10% off your first purchase!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-5 py-4 bg-light">
+        <!-- Footer content will be injected by app.js -->
+    </footer>
+
+    <!-- Question Template -->
+    <template id="question-template">
+        <div class="question-card animate-fade-up">
+            <h3 class="question-text h2 mb-4"></h3>
+            <div class="options-grid">
+                <!-- Options will be dynamically inserted here -->
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <button class="btn btn-outline-secondary prev-question">
+                    <i class="fas fa-arrow-left me-2"></i>
+                    Previous
+                </button>
+                <button class="btn btn-primary next-question">
+                    Next
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Option Template -->
+    <template id="option-template">
+        <div class="option-card hover-lift">
+            <input type="radio" name="question" class="option-input">
+            <div class="option-content">
+                <div class="option-image-container mb-3">
+                    <img class="option-image" src="" alt="">
+                </div>
+                <h5 class="option-text mb-2"></h5>
+                <p class="option-description text-muted mb-0"></p>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/components/quiz.js"></script>
+</body>
+</html>

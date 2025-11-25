@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\Users\\Arbythecoder\\Desktop\\arbys-website\\public\\images\")",
+      "Bash(dir \"c:\\Users\\Arbythecoder\\Desktop\\arbys-website\\public\\images\" /b)",
+      "Bash(dir /b c:UsersArbythecoderDesktoparbys-website)",
+      "Bash(dir:*)",
+      "Bash(if exist .env echo .env exists)",
+      "Bash(if exist .env.example echo .env.example exists)",
+      "Bash(if exist .gitignore echo .gitignore exists)",
+      "Bash(npm create:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(if exist package.json type package.json)",
+      "Bash(timeout 5 node:*)",
+      "Bash(timeout 8 node:*)",
+      "Bash(curl:*)",
+      "Bash(netstat:*)",
+      "Bash(mkdir:*)",
+      "Bash(taskkill //F //PID 8244)",
+      "Bash(if [ -d .git ])",
+      "Bash(then echo \"Git already initialized\")",
+      "Bash(else git init)",
+      "Bash(fi)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
