@@ -67,6 +67,7 @@ app.use('/api/orders', require('./routes/orders'));
 app.use('/api/courses', require('./routes/courses'));
 app.use('/api/quiz', require('./routes/quiz'));
 app.use('/api/blog', require('./routes/blog'));
+app.use('/api/payment', require('./routes/payment'));
 
 // Compression
 app.use(compression());
