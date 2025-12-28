@@ -1,155 +1,87 @@
-/*
- * Arby's Body Organics - Main Stylesheet
- * Premium, CeraVe-inspired design
- * Clean, modern, professional aesthetic
- */
-
-/* ==================== GOOGLE FONTS ==================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
-
-/* ==================== ROOT VARIABLES ==================== */
-:root {
-    /* Primary Brand Colors - Organic & Natural */
-    --primary-color: #2D5F3F;        /* Deep forest green */
-    --primary-light: #4A8B5C;        /* Lighter green */
-    --primary-dark: #1A3D28;         /* Darker green */
-
-    /* Secondary Colors - Warm & Earthy */
-    --secondary-color: #C4956C;      /* Warm tan/beige */
-    --secondary-light: #E6D5C3;      /* Light cream */
-    --secondary-dark: #8B6F47;       /* Deep tan */
-
-    /* Neutral Colors - Clean & Professional */
-    --white: #FFFFFF;
-    --off-white: #FAFAFA;
-    --light-gray: #F5F5F5;
-    --medium-gray: #E0E0E0;
-    --text-gray: #666666;
-    --dark-gray: #333333;
-    --black: #1A1A1A;
-
-    /* Accent Colors */
-    --accent-gold: #D4AF37;
-    --accent-green: #7CB342;
-    --accent-blue: #5C9EAD;
-
-    /* Status Colors */
-    --success: #4CAF50;
-    --warning: #FF9800;
-    --error: #F44336;
-    --info: #2196F3;
-
-    /* Typography */
-    --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-secondary: 'Playfair Display', Georgia, serif;
-
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
-    --spacing-xxl: 4rem;
-
-    /* Shadows */
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
-
-    /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --radius-full: 9999px;
-
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-base: 0.3s ease;
-    --transition-slow: 0.5s ease;
-}
-
-/* ==================== GLOBAL RESET & BASE ==================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
-}
-
+/* Base Styling */
 body {
-    font-family: var(--font-primary);
-    color: var(--dark-gray);
-    background-color: var(--white);
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
-/* ==================== TYPOGRAPHY ==================== */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--black);
-    margin-bottom: var(--spacing-sm);
-}
-
-h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-family: var(--font-secondary);
-}
-
-h2 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-family: var(--font-secondary);
-}
-
-h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-}
-
-p {
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-gray);
-}
-
-a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: var(--transition-base);
-}
-
-/* ==================== NAVIGATION ==================== */
+/* Navbar */
 .navbar {
-    background: var(--white);
-    padding: 1rem 0;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-base);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand {
-    font-family: var(--font-secondary);
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary-color) !important;
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 80vh;
+  background: url('images/hero-image.jpg') no-repeat center center/cover;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.hero h1 {
+  font-size: 3rem;
+  animation: fadeIn 2s;
+}
+.hero p {
+  font-size: 1.5rem;
+  animation: fadeIn 3s;
 }
 
-.nav-link {
-    color: var(--dark-gray) !important;
-    font-weight: 500;
-    padding: 0.5rem 1rem !important;
-    margin: 0 0.25rem;
-    border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
+/* Cards */
+.card {
+  max-width: 300px;
+  margin: 1rem auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+}
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+.card .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #28a745;
+}
+.card a.btn-primary {
+  background-color: #ff5722;
+  border: none;
+  transition: background-color 0.3s;
+}
+.card a.btn-primary:hover {
+  background-color: #e64a19;
 }
 
-.nav-link:hover {
-    color: var(--primary-color) !important;
-    background: var(--light-gray);
+/* Carousel */
+.carousel-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
 }

@@ -24,7 +24,14 @@
       "Bash(else git init)",
       "Bash(fi)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git remote:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(node -e:*)",
+      "Bash(git clone:*)",
+      "Bash(cat:*)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": []
