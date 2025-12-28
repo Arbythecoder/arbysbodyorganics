@@ -1,115 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ArbysBodyOrganics</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arby's House of Beauty - 100% Organic Skincare Products & Academy. Where Nature Meets Knowledge">
+    <title>Arby's Body Organics | The Academy for Organic Glow</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/premium-styles.css">
+    <link rel="stylesheet" href="css/components/animations.css">
+    <link rel="stylesheet" href="css/components/chatbot.css">
 </head>
-
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-    <div class="container">
-      <a class="navbar-brand" href="#">ArbysBodyOrganics</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-          <li class="nav-item"><a class="nav-link" href="#trainings">Trainings</a></li>
-          <li class="nav-item"><a class="nav-link" href="#ebooks">Ebooks</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="hero" class="text-light d-flex align-items-center" style="background: url('/images/acnekit.jpeg') no-repeat center center/cover; height: 100vh;">
-    <div class="container text-center">
-      <h1 class="display-4 fw-bold">Radiance Through Nature</h1>
-      <p class="lead">Experience the power of natural skincare with ArbysBodyOrganics.</p>
-      <a href="#products" class="btn btn-primary btn-lg mt-3">Explore Products</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">About Us</h2>
-      <p class="text-center">At ArbysBodyOrganics, we are committed to transforming skincare with handmade, natural products tailored to rejuvenate your skin. Our eBooks and training programs empower you to master cosmetology and holistic skin health.</p>
-    </div>
-  </section>
-
-  <!-- Products Section -->
-  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="card">
-        <img src="/images/facewash.jpg" class="card-img-top" alt="Product 1">
-        <div class="card-body">
-          <h5 class="card-title">Product 1</h5>
-          <p class="card-text">$20.00</p>
-          <a href="#" class="btn btn-primary">Buy Now</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Arby's Body Organics</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Shop</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pages/all-products.html">All Products</a></li>
+                            <li><a class="dropdown-item" href="pages/face-care.html">Face Care</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Academy</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="pages/courses.html">Courses</a></li>
+                            <li><a class="dropdown-item" href="pages/ebooks.html">E-Books</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="pages/quiz.html">AI Skin Bot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/about.html">About</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="pages/login.html"><i class="bi bi-person"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/cart.html"><i class="bi bi-cart"></i> <span class="badge bg-primary" id="cartCount">0</span></a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="card">
-        <img src="/images/glowsp.jpg" class="card-img-top" alt="Product 2">
-        <div class="card-body">
-          <h5 class="card-title">Product 2</h5>
-          <p class="card-text">$25.00</p>
-          <a href="#" class="btn btn-primary">Buy Now</a>
-        </div>
-      </div>
-    </div>
-    <!-- Add more carousel items as needed -->
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content fade-in">
+                    <span class="hero-badge">100% Organic • Certified Natural</span>
+                    <h1 class="hero-title">
+                        Where Nature Meets
+                        <span style="color: var(--primary-color);">Knowledge</span>
+                    </h1>
+                    <p class="hero-subtitle">The Academy for Organic Glow</p>
+                    <p class="hero-description">
+                        Transform your skin with our premium organic products and expert-led courses.
+                        We don't just sell skincare—we educate you on the science behind beautiful, healthy skin.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="pages/quiz.html" class="btn btn-primary btn-lg">
+                            <i class="bi bi-stars me-2"></i>Take Our Skin Quiz
+                        </a>
+                        <a href="pages/all-products.html" class="btn btn-outline-primary btn-lg">
+                            Shop Products
+                        </a>
+                    </div>
+                    <div class="d-flex gap-4 mt-4 text-muted">
+                        <div><i class="bi bi-check-circle-fill text-success me-2"></i>Cruelty-Free</div>
+                        <div><i class="bi bi-check-circle-fill text-success me-2"></i>Vegan</div>
+                        <div><i class="bi bi-check-circle-fill text-success me-2"></i>Eco-Friendly</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-in" style="animation-delay: 0.3s">
+                    <div class="hero-image-wrapper">
+                        <img src="images/carrotflatlay.jpeg" alt="Organic Skincare Products" class="hero-image">
+                        <div class="hero-shape hero-shape-1"></div>
+                        <div class="hero-shape hero-shape-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Contact Us</h2>
-      <form>
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Your Name" required />
-          </div>
-          <div class="col-md-6">
-            <input type="email" class="form-control" placeholder="Your Email" required />
-          </div>
+    <!-- Christmas Promo Banner -->
+    <section class="christmas-promo-banner py-3" style="background: linear-gradient(135deg, #D4AF37 0%, #2D5F3F 50%, #D4AF37 100%); color: white;">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
+                <span style="font-size: 1.5rem;">🎄</span>
+                <span class="fw-bold">CHRISTMAS SPECIAL!</span>
+                <span>Save 20% on our Glow Bundle</span>
+                <span style="font-size: 1.5rem;">🎁</span>
+                <a href="#christmas-promo" class="btn btn-light btn-sm">Shop Now</a>
+            </div>
         </div>
-        <div class="mb-3">
-          <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </div>
-      </form>
-    </div>
-  </section>
+    </section>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Christmas Promo Section -->
+    <section id="christmas-promo" class="section" style="background: linear-gradient(180deg, #fef9f0 0%, #fff5f5 100%);">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge" style="background: #D4AF37; color: white;">🎄 Limited Time Offer</span>
+                <h2 class="section-title" style="color: #D4AF37;">Christmas Glow Collection</h2>
+                <p class="section-subtitle">Gift yourself or a loved one the perfect skincare combo this holiday season!</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Skin Repair Oil -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="product-card" style="border: 2px solid #D4AF37; position: relative; overflow: visible;">
+                        <div class="position-absolute" style="top: -15px; right: -15px; background: #D4AF37; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem;">
+                            🎁 Christmas Special
+                        </div>
+                        <div class="product-image-wrapper">
+                            <img src="images/skinrepair.jpeg" alt="Skin Repair Oil" class="product-image">
+                            <div class="product-badge" style="background: #2D5F3F;">Hot Sale</div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category" style="color: #D4AF37;">Special Collection</p>
+                            <h3 class="product-title">Skin Repair Oil</h3>
+                            <p class="text-muted small">Deeply nourishes and restores damaged skin. Perfect for dry, cracked, or irritated skin.</p>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(89 reviews)</span>
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span class="product-price">₦4,500</span>
+                                <span class="product-price-original">₦5,500</span>
+                                <span class="product-discount">-18%</span>
+                            </div>
+                            <button class="btn btn-primary w-100 add-to-cart-btn" data-product="skin-repair-oil" data-price="4500" data-name="Skin Repair Oil">
+                                <i class="bi bi-cart me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Face & Body Scrub -->
+                <div class="col-lg-4 col-md-6 fade-in" style="animation-delay: 0.2s">
+                    <div class="product-card" style="border: 2px solid #D4AF37; position: relative; overflow: visible;">
+                        <div class="position-absolute" style="top: -15px; right: -15px; background: #D4AF37; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.85rem;">
+                            🎁 Christmas Special
+                        </div>
+                        <div class="product-image-wrapper">
+                            <img src="images/scrub.jpeg" alt="Face & Body Scrub" class="product-image">
+                            <div class="product-badge" style="background: #2D5F3F;">Bestseller</div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category" style="color: #D4AF37;">Body Care</p>
+                            <h3 class="product-title">Face & Body Scrub</h3>
+                            <p class="text-muted small">Exfoliating organic scrub that removes dead skin cells and reveals brighter, smoother skin.</p>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(112 reviews)</span>
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span class="product-price">₦3,500</span>
+                                <span class="product-price-original">₦4,200</span>
+                                <span class="product-discount">-17%</span>
+                            </div>
+                            <button class="btn btn-primary w-100 add-to-cart-btn" data-product="face-body-scrub" data-price="3500" data-name="Face & Body Scrub">
+                                <i class="bi bi-cart me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Christmas Bundle -->
+                <div class="col-lg-4 col-md-6 fade-in" style="animation-delay: 0.4s">
+                    <div class="product-card" style="border: 3px solid #D4AF37; background: linear-gradient(135deg, #fff 0%, #fff5f5 100%); position: relative; overflow: visible; transform: scale(1.02);">
+                        <div class="position-absolute" style="top: -20px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #D4AF37, #2D5F3F); color: white; padding: 10px 25px; border-radius: 25px; font-weight: bold; white-space: nowrap;">
+                            🎄 BEST VALUE - SAVE 20% 🎄
+                        </div>
+                        <div class="product-image-wrapper" style="margin-top: 15px;">
+                            <img src="images/skinrepair.jpeg" alt="Christmas Glow Bundle" class="product-image">
+                            <div class="product-badge" style="background: gold; color: #333;">Bundle Deal</div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category" style="color: #D4AF37;">Holiday Bundle</p>
+                            <h3 class="product-title">Christmas Glow Bundle</h3>
+                            <p class="text-muted small"><strong>Includes:</strong> Skin Repair Oil + Face & Body Scrub. The perfect gift set!</p>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(203 reviews)</span>
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span class="product-price" style="color: #D4AF37; font-size: 1.5rem;">₦6,500</span>
+                                <span class="product-price-original">₦8,000</span>
+                                <span class="product-discount" style="background: #D4AF37;">-20%</span>
+                            </div>
+                            <button class="btn w-100 add-to-cart-btn" style="background: linear-gradient(135deg, #D4AF37, #2D5F3F); color: white; font-weight: bold;" data-product="christmas-bundle" data-price="6500" data-name="Christmas Glow Bundle">
+                                <i class="bi bi-gift me-2"></i>Add Bundle to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="text-center mt-5 p-4 rounded-3" style="background: rgba(196, 30, 58, 0.1);">
+                <h4 style="color: #D4AF37;">⏰ Offer Ends In:</h4>
+                <div class="d-flex justify-content-center gap-3 mt-3" id="countdown">
+                    <div class="text-center p-3 rounded" style="background: #D4AF37; color: white; min-width: 70px;">
+                        <div class="fs-3 fw-bold" id="days">25</div>
+                        <small>Days</small>
+                    </div>
+                    <div class="text-center p-3 rounded" style="background: #D4AF37; color: white; min-width: 70px;">
+                        <div class="fs-3 fw-bold" id="hours">12</div>
+                        <small>Hours</small>
+                    </div>
+                    <div class="text-center p-3 rounded" style="background: #D4AF37; color: white; min-width: 70px;">
+                        <div class="fs-3 fw-bold" id="minutes">30</div>
+                        <small>Mins</small>
+                    </div>
+                    <div class="text-center p-3 rounded" style="background: #D4AF37; color: white; min-width: 70px;">
+                        <div class="fs-3 fw-bold" id="seconds">45</div>
+                        <small>Secs</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Why Choose Us</span>
+                <h2 class="section-title">More Than Just Products</h2>
+                <p class="section-subtitle">
+                    We combine education with exceptional organic skincare to empower your beauty journey
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+                        <h3 class="feature-title">Beauty Academy</h3>
+                        <p class="feature-description">
+                            Expert-led courses and e-books teach you the science behind skincare.
+                            Learn what works and why.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in" style="animation-delay: 0.2s">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <h3 class="feature-title">AI Skin Bot</h3>
+                        <p class="feature-description">
+                            Get personalized product recommendations and custom routines
+                            based on your unique skin profile.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in" style="animation-delay: 0.4s">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                        <h3 class="feature-title">100% Organic</h3>
+                        <p class="feature-description">
+                            Every product is made with certified organic ingredients.
+                            No harsh chemicals, just nature's best.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Our Bestsellers</span>
+                <h2 class="section-title">Curated for Your Skin</h2>
+                <p class="section-subtitle">
+                    Perfectly formulated organic products that deliver real results
+                </p>
+            </div>
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6 fade-in">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="images/vitcserum.jpeg" alt="Vitamin C Serum" class="product-image">
+                            <div class="product-badge">Bestseller</div>
+                            <div class="product-actions">
+                                <div class="product-action-btn"><i class="bi bi-heart"></i></div>
+                                <div class="product-action-btn"><i class="bi bi-eye"></i></div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Face Care</p>
+                            <h3 class="product-title">Organic Vitamin C Brightening Serum</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(128 reviews)</span>
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span class="product-price">₦12,000</span>
+                                <span class="product-price-original">₦15,000</span>
+                                <span class="product-discount">-20%</span>
+                            </div>
+                            <a href="pages/product-detail.html" class="btn btn-primary w-100">
+                                <i class="bi bi-cart me-2"></i>Add to Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6 fade-in" style="animation-delay: 0.2s">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="images/facewash.jpeg" alt="Face Wash" class="product-image">
+                            <div class="product-badge" style="background: var(--accent-green);">New</div>
+                            <div class="product-actions">
+                                <div class="product-action-btn"><i class="bi bi-heart"></i></div>
+                                <div class="product-action-btn"><i class="bi bi-eye"></i></div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Face Care</p>
+                            <h3 class="product-title">Gentle Organic Face Cleanser</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(95 reviews)</span>
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span class="product-price">₦8,500</span>
+                            </div>
+                            <a href="pages/product-detail.html" class="btn btn-primary w-100">
+                                <i class="bi bi-cart me-2"></i>Add to Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6 fade-in" style="animation-delay: 0.4s">
+                    <div class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="images/glowsp.jpeg" alt="Glow Serum" class="product-image">
+                            <div class="product-actions">
+                                <div class="product-action-btn"><i class="bi bi-heart"></i></div>
+                                <div class="product-action-btn"><i class="bi bi-eye"></i></div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-category">Face Care</p>
+                            <h3 class="product-title">Natural Glow Boosting Serum</h3>
+                            <div class="product-rating">
+                                <span class="stars">★★★★★</span>
+                                <span class="rating-count">(156 reviews)</span>
+                            </div>
+                            <div class="product-price-wrapper">
+                                <span class="product-price">₦22,000</span>
+                            </div>
+                            <a href="pages/product-detail.html" class="btn btn-primary w-100">
+                                <i class="bi bi-cart me-2"></i>Add to Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="pages/all-products.html" class="btn btn-outline-primary btn-lg">
+                    View All Products <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academy CTA Section -->
+    <section class="section section-bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in">
+                    <img src="images/modelabs.jpeg" alt="Beauty Academy" class="img-fluid rounded-xl shadow-lg">
+                </div>
+                <div class="col-lg-6 fade-in" style="animation-delay: 0.3s">
+                    <span class="hero-badge">The Academy</span>
+                    <h2 class="hero-title" style="font-size: clamp(2rem, 4vw, 3rem);">
+                        Learn the Science of Beautiful Skin
+                    </h2>
+                    <p class="hero-description">
+                        Our expert-led courses and comprehensive e-books teach you everything
+                        about organic ingredients, skin types, and creating the perfect routine.
+                        Don't just buy products—understand your skin.
+                    </p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Expert-led video courses</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Downloadable e-books & guides</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Certificates upon completion</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Lifetime access to content</li>
+                    </ul>
+                    <a href="pages/courses.html" class="btn btn-primary btn-lg">
+                        Explore Academy <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Testimonials</span>
+                <h2 class="section-title">What Our Community Says</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text">
+                            "The academy courses completely changed how I understand skincare.
+                            Now I know exactly what my skin needs!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="images/mod-absbrown.jpeg" alt="Chioma O" class="testimonial-avatar">
+                            <div>
+                                <div class="testimonial-name">Chioma O.</div>
+                                <div class="testimonial-role">Verified Customer - Lagos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in" style="animation-delay: 0.2s">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text">
+                            "Finally, skincare products that are truly organic and actually work.
+                            My skin has never looked better!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="images/models2abs.jpeg" alt="Adanna N" class="testimonial-avatar">
+                            <div>
+                                <div class="testimonial-name">Adanna N.</div>
+                                <div class="testimonial-role">Academy Student - Abuja</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-in" style="animation-delay: 0.4s">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text">
+                            "The AI Skin Bot gave me personalized recommendations that
+                            transformed my skincare routine in just weeks!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="images/modelabs.jpeg" alt="Blessing I" class="testimonial-avatar">
+                            <div>
+                                <div class="testimonial-name">Blessing I.</div>
+                                <div class="testimonial-role">Quiz User - Port Harcourt</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="section section-bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Follow Us</span>
+                <h2 class="section-title">@ArbyBodyOrganics</h2>
+                <p class="section-subtitle">Join our community for daily skincare tips and inspiration</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-3 col-6 fade-in">
+                    <img src="images/mod-absbrown.jpeg" alt="Instagram" class="img-fluid rounded-lg">
+                </div>
+                <div class="col-md-3 col-6 fade-in">
+                    <img src="images/models2abs.jpeg" alt="Instagram" class="img-fluid rounded-lg">
+                </div>
+                <div class="col-md-3 col-6 fade-in">
+                    <img src="images/toner.jpeg" alt="Instagram" class="img-fluid rounded-lg">
+                </div>
+                <div class="col-md-3 col-6 fade-in">
+                    <img src="images/scrub.jpeg" alt="Instagram" class="img-fluid rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center fade-in">
+                    <h2 class="mb-4" style="color: white;">Get 15% Off Your First Order</h2>
+                    <p class="mb-4" style="color: rgba(255,255,255,0.9);">
+                        Subscribe to our newsletter for exclusive offers, skincare tips, and early access to new products
+                    </p>
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email" required>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-light btn-lg">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Arby's Body Organics</h5>
+                    <p class="mb-4">The Academy for Organic Glow. Where nature meets knowledge.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Shop</h6>
+                    <a href="pages/all-products.html">All Products</a>
+                    <a href="pages/face-care.html">Face Care</a>
+                    <a href="pages/quiz.html">Skin Quiz</a>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Academy</h6>
+                    <a href="pages/courses.html">Courses</a>
+                    <a href="pages/ebooks.html">E-Books</a>
+                    <a href="pages/blog.html">Blog</a>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>About</h6>
+                    <a href="pages/about.html">Our Story</a>
+                    <a href="pages/contact.html">Contact Us</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Support</h6>
+                    <a href="#">Shipping & Returns</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Arby's Body Organics. All rights reserved. | Made with ♥ for your skin</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/2347067510073?text=Hi%20Arby!%20I'm%20interested%20in%20your%20organic%20skincare%20products"
+       class="whatsapp-float"
+       target="_blank"
+       style="position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+    <!-- AI Chatbot -->
+    <script src="js/components/ai-chatbot.js"></script>
+
+    <!-- Christmas Countdown Timer -->
+    <script>
+        // Set Christmas date (December 25, 2024)
+        const christmasDate = new Date('December 25, 2024 23:59:59').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = christmasDate - now;
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('minutes').textContent = minutes;
+                document.getElementById('seconds').textContent = seconds;
+            }
+        }
+
+        // Update every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Add to cart functionality for Christmas promo
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const product = this.dataset.product;
+                const price = this.dataset.price;
+                const name = this.dataset.name;
+
+                // Get existing cart or create new
+                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+                // Check if product already exists
+                const existingItem = cart.find(item => item.product === product);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ product, price: parseInt(price), name, quantity: 1 });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Update cart count
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                }
+
+                // Show feedback
+                this.innerHTML = '<i class="bi bi-check me-2"></i>Added!';
+                this.style.backgroundColor = '#2D5F3F';
+                setTimeout(() => {
+                    this.innerHTML = this.dataset.product === 'christmas-bundle'
+                        ? '<i class="bi bi-gift me-2"></i>Add Bundle to Cart'
+                        : '<i class="bi bi-cart me-2"></i>Add to Cart';
+                    this.style.backgroundColor = '';
+                }, 1500);
+            });
+        });
+    </script>
 </body>
-
 </html>
