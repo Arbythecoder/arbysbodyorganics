@@ -22,6 +22,8 @@ class Checkout {
         this.loadCartItems();
         this.calculateOrderSummary();
         this.setupEventListeners();
+        // Initialize payment method display
+        setTimeout(() => this.togglePaymentMethod('bankTransfer'), 100);
     }
 
     /**
@@ -111,6 +113,18 @@ class Checkout {
             placeOrderBtn.addEventListener('click', () => this.placeOrder());
         }
 
+        // Payment method toggle
+        const bankTransferRadio = document.getElementById('bankTransfer');
+        const whatsappPayRadio = document.getElementById('whatsappPay');
+
+        if (bankTransferRadio) {
+            bankTransferRadio.addEventListener('change', () => this.togglePaymentMethod('bankTransfer'));
+        }
+
+        if (whatsappPayRadio) {
+            whatsappPayRadio.addEventListener('change', () => this.togglePaymentMethod('whatsappPay'));
+        }
+
         // Tab navigation
         const tabLinks = document.querySelectorAll('.list-group-item[data-tab]');
         tabLinks.forEach(link => {
@@ -120,6 +134,29 @@ class Checkout {
                 this.switchTab(tab);
             });
         });
+    }
+
+    /**
+     * Toggle payment method details display
+     * @param {string} method - Payment method selected
+     */
+    togglePaymentMethod(method) {
+        const bankDetails = document.getElementById('bankTransferDetails');
+        const whatsappDetails = document.getElementById('whatsappPayDetails');
+
+        if (method === 'bankTransfer') {
+            bankDetails?.classList.remove('d-none');
+            whatsappDetails?.classList.add('d-none');
+
+            // Update transfer amount
+            const transferAmount = document.getElementById('transferAmount');
+            if (transferAmount && this.orderData.total) {
+                transferAmount.textContent = `₦${this.orderData.total.toLocaleString('en-NG', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            }
+        } else if (method === 'whatsappPay') {
+            bankDetails?.classList.add('d-none');
+            whatsappDetails?.classList.remove('d-none');
+        }
     }
 
     /**
@@ -191,18 +228,28 @@ class Checkout {
 
         const inputs = form.querySelectorAll('input[required]');
         let isValid = true;
+        let firstInvalidInput = null;
 
         inputs.forEach(input => {
             if (!input.value.trim()) {
                 input.classList.add('is-invalid');
+                if (!firstInvalidInput) {
+                    firstInvalidInput = input;
+                }
                 isValid = false;
             } else {
                 input.classList.remove('is-invalid');
+                input.classList.add('is-valid');
             }
         });
 
         if (!isValid) {
             this.showNotification('Please fill in all required fields', 'error');
+            // Scroll to first invalid input
+            if (firstInvalidInput) {
+                firstInvalidInput.focus();
+                firstInvalidInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
 
         return isValid;
@@ -213,26 +260,15 @@ class Checkout {
      * @returns {boolean} True if valid
      */
     validatePaymentForm() {
-        const form = document.getElementById('paymentForm');
-        if (!form) return false;
+        // Just check that a payment method is selected
+        const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked');
 
-        const inputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-
-        inputs.forEach(input => {
-            if (!input.value.trim()) {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        if (!isValid) {
-            this.showNotification('Please fill in all payment details', 'error');
+        if (!selectedMethod) {
+            this.showNotification('Please select a payment method', 'error');
+            return false;
         }
 
-        return isValid;
+        return true;
     }
 
     /**
@@ -271,13 +307,13 @@ class Checkout {
         }
 
         if (reviewPayment && this.orderData.payment) {
-            reviewPayment.textContent = this.orderData.payment.method === 'paypal' ? 'PayPal' : 'Credit Card';
+            const methodText = this.orderData.payment.method === 'whatsappPay' ? 'WhatsApp Payment' : 'Bank Transfer';
+            reviewPayment.textContent = methodText;
         }
     }
 
     /**
-     * Send order to Arby via WhatsApp
-     * Customer picks products, then contacts seller to arrange payment
+     * Place order based on selected payment method
      */
     async placeOrder() {
         const termsCheck = document.getElementById('termsCheck');
@@ -297,56 +333,129 @@ class Checkout {
         const placeOrderBtn = document.getElementById('placeOrderBtn');
         const originalText = placeOrderBtn.innerHTML;
         placeOrderBtn.disabled = true;
-        placeOrderBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Preparing...';
+        placeOrderBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
 
         try {
-            // Prepare order details
-            const customerName = `${this.orderData.shipping.firstName} ${this.orderData.shipping.lastName}`;
-            const customerPhone = this.orderData.shipping.phone || '';
-            const shippingAddress = `${this.orderData.shipping.address}, ${this.orderData.shipping.city}, ${this.orderData.shipping.state} ${this.orderData.shipping.zip}`;
+            const paymentMethod = this.orderData.payment.method;
 
-            // Build order message for WhatsApp
-            let orderMessage = `🛍️ *NEW ORDER FROM WEBSITE*\n\n`;
-            orderMessage += `*Customer:* ${customerName}\n`;
-            orderMessage += `*Phone:* ${customerPhone}\n`;
-            orderMessage += `*Shipping Address:*\n${shippingAddress}\n\n`;
-            orderMessage += `*ITEMS ORDERED:*\n`;
-
-            this.orderData.items.forEach((item, index) => {
-                orderMessage += `${index + 1}. ${item.name} x${item.quantity} - ₦${(item.price * item.quantity).toLocaleString()}\n`;
-            });
-
-            orderMessage += `\n*Subtotal:* ₦${this.orderData.subtotal.toLocaleString()}\n`;
-            orderMessage += `*Shipping:* ₦${this.orderData.shipping.toLocaleString()}\n`;
-            orderMessage += `*TOTAL:* ₦${this.orderData.total.toLocaleString()}\n\n`;
-            orderMessage += `Please confirm this order and send payment details. Thank you! 🌿`;
-
-            // Send to WhatsApp
-            const whatsappUrl = `https://wa.me/2347067510073?text=${encodeURIComponent(orderMessage)}`;
-
-            // Clear cart
-            localStorage.removeItem('cart');
-
-            // Show success message
-            this.showNotification('Opening WhatsApp to complete your order...', 'success');
-
-            // Open WhatsApp
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-                // Redirect to thank you page
-                setTimeout(() => {
-                    window.location.href = '../index.html?orderSent=true';
-                }, 1500);
-            }, 1000);
+            if (paymentMethod === 'whatsappPay') {
+                await this.processWhatsAppPayment();
+            } else {
+                await this.processBankTransferPayment();
+            }
 
         } catch (error) {
             console.error('Order error:', error);
-            this.showNotification('Error preparing order. Please try again.', 'error');
+            this.showNotification('Error processing order. Please try again.', 'error');
 
             // Reset button
             placeOrderBtn.disabled = false;
             placeOrderBtn.innerHTML = originalText;
         }
+    }
+
+    /**
+     * Process WhatsApp payment
+     */
+    async processWhatsAppPayment() {
+        const customerName = `${this.orderData.shipping.firstName} ${this.orderData.shipping.lastName}`;
+        const customerPhone = this.orderData.shipping.phone || '';
+        const shippingAddress = `${this.orderData.shipping.address}, ${this.orderData.shipping.city}, ${this.orderData.shipping.state} ${this.orderData.shipping.zip}`;
+
+        // Generate order reference
+        const orderRef = this.generateOrderRef();
+        this.orderData.orderRef = orderRef;
+        this.orderData.date = new Date().toISOString();
+
+        // Build order message for WhatsApp
+        let orderMessage = `🛍️ *NEW ORDER - WhatsApp Payment*\n\n`;
+        orderMessage += `*Order Reference:* ${orderRef}\n`;
+        orderMessage += `*Customer:* ${customerName}\n`;
+        orderMessage += `*Phone:* ${customerPhone}\n`;
+        orderMessage += `*Shipping Address:*\n${shippingAddress}\n\n`;
+        orderMessage += `*ITEMS ORDERED:*\n`;
+
+        this.orderData.items.forEach((item, index) => {
+            orderMessage += `${index + 1}. ${item.name} x${item.quantity} - ₦${(item.price * item.quantity).toLocaleString()}\n`;
+        });
+
+        orderMessage += `\n*Subtotal:* ₦${this.orderData.subtotal.toLocaleString()}\n`;
+        orderMessage += `*Shipping:* ₦${this.orderData.shipping.toLocaleString()}\n`;
+        orderMessage += `*TOTAL:* ₦${this.orderData.total.toLocaleString()}\n\n`;
+        orderMessage += `I'd like to complete payment via WhatsApp. Please send payment instructions. Thank you! 🌿`;
+
+        // Send to WhatsApp
+        const whatsappUrl = `https://wa.me/2347067510073?text=${encodeURIComponent(orderMessage)}`;
+
+        // Store order data for confirmation page
+        sessionStorage.setItem('lastOrder', JSON.stringify(this.orderData));
+
+        // Clear cart
+        localStorage.removeItem('cart');
+
+        // Show success message
+        this.showNotification('Redirecting to WhatsApp...', 'success');
+
+        // Open WhatsApp
+        setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+            // Redirect to confirmation page
+            setTimeout(() => {
+                window.location.href = 'order-confirmation.html';
+            }, 1500);
+        }, 1000);
+    }
+
+    /**
+     * Process bank transfer payment
+     */
+    async processBankTransferPayment() {
+        const customerName = `${this.orderData.shipping.firstName} ${this.orderData.shipping.lastName}`;
+        const customerPhone = this.orderData.shipping.phone || '';
+        const shippingAddress = `${this.orderData.shipping.address}, ${this.orderData.shipping.city}, ${this.orderData.shipping.state} ${this.orderData.shipping.zip}`;
+
+        // Generate order reference
+        const orderRef = this.generateOrderRef();
+        this.orderData.orderRef = orderRef;
+        this.orderData.date = new Date().toISOString();
+
+        // Build order confirmation message for WhatsApp (proof of payment)
+        let orderMessage = `🛍️ *NEW ORDER - Bank Transfer*\n\n`;
+        orderMessage += `*Order Reference:* ${orderRef}\n`;
+        orderMessage += `*Customer:* ${customerName}\n`;
+        orderMessage += `*Phone:* ${customerPhone}\n`;
+        orderMessage += `*Shipping Address:*\n${shippingAddress}\n\n`;
+        orderMessage += `*ITEMS ORDERED:*\n`;
+
+        this.orderData.items.forEach((item, index) => {
+            orderMessage += `${index + 1}. ${item.name} x${item.quantity} - ₦${(item.price * item.quantity).toLocaleString()}\n`;
+        });
+
+        orderMessage += `\n*TOTAL AMOUNT TO TRANSFER:* ₦${this.orderData.total.toLocaleString()}\n\n`;
+        orderMessage += `I have made/will make a bank transfer. I will send proof of payment shortly. Thank you! 🌿`;
+
+        // Send to WhatsApp for confirmation
+        const whatsappUrl = `https://wa.me/2347067510073?text=${encodeURIComponent(orderMessage)}`;
+
+        // Store order data for confirmation page
+        sessionStorage.setItem('lastOrder', JSON.stringify(this.orderData));
+
+        // Clear cart
+        localStorage.removeItem('cart');
+
+        // Redirect to confirmation page
+        window.location.href = 'order-confirmation.html';
+    }
+
+    /**
+     * Generate order reference number
+     * @returns {string} Order reference
+     */
+    generateOrderRef() {
+        const prefix = 'ABO';
+        const timestamp = Date.now().toString().slice(-8);
+        const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+        return `${prefix}-${timestamp}-${random}`;
     }
 
     /**
