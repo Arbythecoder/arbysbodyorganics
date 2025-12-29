@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
             spinner.classList.remove('d-none');
 
             try {
-                const response = await fetch('/api/auth/login', {
+                const response = await fetch(`${API_URL}/auth/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
             spinner.classList.remove('d-none');
 
             try {
-                const response = await fetch('/api/auth/register', {
+                const response = await fetch(`${API_URL}/auth/register`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
