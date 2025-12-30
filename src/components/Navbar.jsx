@@ -20,11 +20,11 @@ export default function Navbar() {
             <Link to="/products" className="text-gray-700 hover:text-green-600 font-medium">
               Products
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-green-600 font-medium">
-              About
+            <Link to="/courses" className="text-gray-700 hover:text-green-600 font-medium">
+              Courses
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-green-600 font-medium">
-              Contact
+            <Link to="/ebooks" className="text-gray-700 hover:text-green-600 font-medium">
+              E-Books
             </Link>
           </div>
 
