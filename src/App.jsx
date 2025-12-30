@@ -9,7 +9,7 @@ import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
   return (
-    <BrowserRouter basename="/arbys-react">
+    <BrowserRouter basename="/arbysbodyorganics">
       <CartProvider>
         <div className="min-h-screen flex flex-col">
           <Navbar />
