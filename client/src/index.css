@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 @layer base {
+  html { scroll-behavior: smooth; }
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #fff;
+    background-color: #FAF6EE;
     color: #111827;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -16,5 +17,14 @@
 @layer utilities {
   .font-display {
     font-family: 'Playfair Display', Georgia, serif;
+  }
+  .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee-scroll 32s linear infinite;
+  }
+  @keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 }

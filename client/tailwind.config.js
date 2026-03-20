@@ -7,10 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2D5016',
+        primary: '#2A4D0F',
         secondary: '#8B4513',
-        accent: '#FFD700',
-        cream: '#FDF8F0',
+        accent: '#C9A84C',
+        cream: '#FAF6EE',
+        forest: '#0D1A07',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
