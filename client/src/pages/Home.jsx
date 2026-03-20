@@ -21,10 +21,10 @@ const STATS = [
 ];
 
 const CONCERNS = [
-  { title: 'Hyperpigmentation', desc: 'Even out dark spots & uneven tone', icon: '☀' },
-  { title: 'Acne & Breakouts', desc: 'Clear blemishes with natural botanicals', icon: '✦' },
-  { title: 'Stretch Marks', desc: 'Fade and restore skin elasticity', icon: '◈' },
-  { title: 'Dry & Dull Skin', desc: 'Deep hydration with shea & aloe', icon: '◎' },
+  { title: 'Hyperpigmentation', desc: 'Even out dark spots & uneven tone', icon: '☀', hover: 'hover:bg-forest hover:border-forest' },
+  { title: 'Acne & Breakouts', desc: 'Clear blemishes with natural botanicals', icon: '✦', hover: 'hover:bg-purple hover:border-purple' },
+  { title: 'Stretch Marks', desc: 'Fade and restore skin elasticity', icon: '◈', hover: 'hover:bg-secondary hover:border-secondary' },
+  { title: 'Dry & Dull Skin', desc: 'Deep hydration with shea & aloe', icon: '◎', hover: 'hover:bg-forest hover:border-forest' },
 ];
 
 const TESTIMONIALS = [
@@ -33,18 +33,21 @@ const TESTIMONIALS = [
     location: 'Lagos',
     text: "After 3 weeks of using the glow soap, my dark spots are visibly lighter. I get compliments every day. Genuinely the best investment I've made for my skin.",
     initials: 'CO',
+    avatarBg: 'bg-forest',
   },
   {
     name: 'Fatima A.',
     location: 'Abuja',
-    text: 'Abby\'s consultation changed everything for me. She identified my skin type correctly and recommended products that actually work. My acne is 90% gone.',
+    text: "Abby's consultation changed everything for me. She identified my skin type correctly and recommended products that actually work. My acne is 90% gone.",
     initials: 'FA',
+    avatarBg: 'bg-purple',
   },
   {
     name: 'Blessing E.',
     location: 'Port Harcourt',
     text: 'I was skeptical about organic products but the stretch mark oil has made a real difference. The texture of my skin has completely changed in 6 weeks.',
     initials: 'BE',
+    avatarBg: 'bg-secondary',
   },
 ];
 
@@ -97,7 +100,7 @@ const Home = () => {
                 </Link>
                 <Link
                   to="/consultation"
-                  className="border border-forest text-forest text-[11px] tracking-[0.18em] uppercase font-semibold px-8 py-4 hover:bg-forest hover:text-white transition-colors"
+                  className="bg-purple text-white text-[11px] tracking-[0.18em] uppercase font-semibold px-8 py-4 hover:bg-purple/80 transition-colors"
                 >
                   Free Skin Quiz
                 </Link>
@@ -188,11 +191,11 @@ const Home = () => {
             <h2 className="font-display font-bold text-forest text-4xl md:text-5xl">What Does Your<br /><em>Skin Need?</em></h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {CONCERNS.map(({ title, desc, icon }) => (
+            {CONCERNS.map(({ title, desc, icon, hover }) => (
               <Link
                 key={title}
                 to="/products"
-                className="group bg-white border border-gray-200 p-7 hover:bg-forest hover:border-forest transition-all duration-300"
+                className={`group bg-white border border-gray-200 p-7 ${hover} transition-all duration-300`}
               >
                 <span className="block text-2xl text-gray-300 group-hover:text-accent mb-5 transition-colors font-display">{icon}</span>
                 <h3 className="font-display font-bold text-forest group-hover:text-white text-base mb-2 transition-colors leading-tight">{title}</h3>
@@ -256,7 +259,7 @@ const Home = () => {
           <div className="text-center mt-10 md:hidden">
             <Link
               to="/products"
-              className="inline-block border border-forest text-forest text-[11px] tracking-[0.18em] uppercase font-semibold px-10 py-4 hover:bg-forest hover:text-white transition-colors"
+              className="inline-block bg-secondary text-white text-[11px] tracking-[0.18em] uppercase font-semibold px-10 py-4 hover:bg-secondary/80 transition-colors"
             >
               View All Products
             </Link>
@@ -317,16 +320,15 @@ const Home = () => {
             <p className="text-xs tracking-widest uppercase text-gray-400 md:mb-1">Verified customers</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map(({ name, location, text, initials }) => (
+            {TESTIMONIALS.map(({ name, location, text, initials, avatarBg }) => (
               <div key={name} className="bg-white border border-gray-200 p-8 relative">
-                {/* Large decorative quote */}
                 <span className="absolute top-4 right-6 font-display text-8xl text-gray-100 leading-none select-none">"</span>
                 <div className="flex gap-0.5 mb-5">
                   {[1,2,3,4,5].map(i => <StarIcon key={i} filled />)}
                 </div>
                 <p className="text-gray-600 leading-relaxed text-sm mb-7 relative z-10">"{text}"</p>
                 <div className="flex items-center gap-3 border-t border-gray-100 pt-5">
-                  <div className="w-9 h-9 bg-forest text-white font-bold flex items-center justify-center text-xs">
+                  <div className={`w-9 h-9 ${avatarBg} text-white font-bold flex items-center justify-center text-xs`}>
                     {initials}
                   </div>
                   <div>
@@ -340,30 +342,30 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ── E-BOOKS & YOUTUBE ────────────────────────────────────────────── */}
+      {/* ── TRAININGS ────────────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-14 text-center">
-            <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 font-medium mb-3">Learn &amp; Grow</p>
-            <h2 className="font-display font-bold text-forest text-4xl md:text-5xl">Free Resources<br /><em>For Your Skin</em></h2>
+            <p className="text-[10px] tracking-[0.3em] uppercase text-purple font-semibold mb-3">Trainings &amp; Resources</p>
+            <h2 className="font-display font-bold text-forest text-4xl md:text-5xl">Learn, Grow &amp;<br /><em>Glow With Us</em></h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
 
-            {/* E-books — dark forest */}
-            <div className="bg-forest p-10 md:p-12 flex flex-col justify-between min-h-[360px]">
+            {/* E-books — purple card */}
+            <div className="bg-purple p-10 md:p-12 flex flex-col justify-between min-h-[360px]">
               <div>
-                <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6">Digital Guides</p>
+                <p className="text-[10px] tracking-[0.3em] uppercase text-white/50 font-medium mb-6">Digital Guides · Selar Store</p>
                 <h3 className="font-display font-bold text-white text-3xl md:text-4xl leading-tight mb-4">
-                  Skincare<br /><em>E-books</em>
+                  Skincare<br /><em>E-books &amp; Guides</em>
                 </h3>
-                <p className="text-white/50 text-sm leading-relaxed mb-8 max-w-sm">
+                <p className="text-white/70 text-sm leading-relaxed mb-8 max-w-sm">
                   Learn to read labels, build routines that work, and understand Nigerian skin —
                   written by Abby from personal experience.
                 </p>
                 <div className="grid grid-cols-2 gap-2 mb-10">
                   {['Skin Type Guide', 'Routine Builder', 'Label Decoder', 'Hyperpigmentation Fix'].map(title => (
-                    <div key={title} className="border border-white/10 px-4 py-3">
-                      <p className="text-[10px] tracking-wide uppercase text-white/60 font-medium">{title}</p>
+                    <div key={title} className="border border-white/20 bg-white/10 px-4 py-3">
+                      <p className="text-[10px] tracking-wide uppercase text-white/80 font-medium">{title}</p>
                     </div>
                   ))}
                 </div>
@@ -374,18 +376,18 @@ const Home = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-accent text-forest text-[11px] tracking-[0.18em] uppercase font-bold px-7 py-4 self-start hover:brightness-110 transition"
               >
-                Browse E-books
+                Browse E-books on Selar →
               </a>
             </div>
 
-            {/* YouTube — cream with green accents */}
-            <div className="bg-cream border border-gray-200 p-10 md:p-12 flex flex-col justify-between min-h-[360px]">
+            {/* YouTube — forest card */}
+            <div className="bg-forest p-10 md:p-12 flex flex-col justify-between min-h-[360px]">
               <div>
-                <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 font-medium mb-6">Free Tutorials</p>
-                <h3 className="font-display font-bold text-forest text-3xl md:text-4xl leading-tight mb-4">
-                  Watch on<br /><em>YouTube</em>
+                <p className="text-[10px] tracking-[0.3em] uppercase text-white/40 font-medium mb-6">Free Tutorials · YouTube</p>
+                <h3 className="font-display font-bold text-white text-3xl md:text-4xl leading-tight mb-4">
+                  Watch Free<br /><em>Skin Tutorials</em>
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">
+                <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-sm">
                   Abby breaks down skincare myths, demos products, and walks you through
                   routines step by step — completely free.
                 </p>
@@ -395,13 +397,13 @@ const Home = () => {
                     'Fade Dark Spots in 30 Days',
                     'Morning Routine for Oily Skin',
                   ].map(title => (
-                    <div key={title} className="flex items-center gap-4 border border-gray-200 bg-white px-5 py-4">
+                    <div key={title} className="flex items-center gap-4 border border-white/10 bg-white/5 px-5 py-4">
                       <div className="w-6 h-6 bg-red-600 flex items-center justify-center shrink-0">
                         <svg className="w-2.5 h-2.5 text-white fill-current ml-0.5" viewBox="0 0 24 24">
                           <path d="M8 5v14l11-7z" />
                         </svg>
                       </div>
-                      <p className="text-xs font-semibold text-forest tracking-wide">{title}</p>
+                      <p className="text-xs font-semibold text-white/80 tracking-wide">{title}</p>
                     </div>
                   ))}
                 </div>
@@ -410,9 +412,9 @@ const Home = () => {
                 href={YOUTUBE_CHANNEL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-forest text-white text-[11px] tracking-[0.18em] uppercase font-bold px-7 py-4 self-start hover:bg-primary transition-colors"
+                className="inline-block bg-accent text-forest text-[11px] tracking-[0.18em] uppercase font-bold px-7 py-4 self-start hover:brightness-110 transition"
               >
-                Watch on YouTube
+                Watch on YouTube →
               </a>
             </div>
           </div>
@@ -435,7 +437,7 @@ const Home = () => {
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white text-forest text-[11px] tracking-[0.18em] uppercase font-bold px-9 py-4 hover:bg-accent transition-colors"
+            className="inline-flex items-center gap-3 bg-accent text-forest text-[11px] tracking-[0.18em] uppercase font-bold px-9 py-4 hover:brightness-110 transition"
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -463,7 +465,7 @@ const Home = () => {
           </p>
           <Link
             to="/about"
-            className="inline-block border border-white/20 text-white text-[11px] tracking-[0.22em] uppercase font-medium px-8 py-4 hover:bg-white hover:text-forest transition-colors"
+            className="inline-block bg-mauve text-forest text-[11px] tracking-[0.22em] uppercase font-semibold px-8 py-4 hover:bg-accent transition-colors"
           >
             Read the Full Story
           </Link>

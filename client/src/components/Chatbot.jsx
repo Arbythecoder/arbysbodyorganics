@@ -329,9 +329,17 @@ const Chatbot = () => {
               <h3 className="font-bold text-sm">Arby's Skincare Assistant</h3>
               <p className="text-xs text-green-200">General guidance · Not medical advice</p>
             </div>
-            <div className="flex items-center gap-3">
-              <button onClick={resetChat} className="text-green-200 hover:text-white text-xs">Restart</button>
-              <button onClick={() => setIsOpen(false)} className="text-white hover:text-gray-200">✕</button>
+            <div className="flex items-center gap-2">
+              <button onClick={resetChat} className="text-green-200 hover:text-white text-xs px-2 py-1 border border-green-300/30 rounded hover:border-white/60 transition">
+                Restart
+              </button>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="bg-white/20 hover:bg-red-500 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center transition-colors text-base leading-none"
+                aria-label="Close chat"
+              >
+                ✕
+              </button>
             </div>
           </div>
 

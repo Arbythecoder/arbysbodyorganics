@@ -12,6 +12,9 @@ export default {
         accent: '#C9A84C',
         cream: '#FAF6EE',
         forest: '#0D1A07',
+        purple: '#7B5EA7',
+        lavender: '#F0EBFF',
+        mauve: '#C4B0E8',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
