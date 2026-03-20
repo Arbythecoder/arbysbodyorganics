@@ -31,7 +31,7 @@ const TESTIMONIALS = [
   {
     name: 'Chidinma O.',
     location: 'Lagos',
-    text: 'After 3 weeks of using the glow soap, my dark spots are visibly lighter. I get compliments every day. Genuinely the best investment I've made for my skin.',
+    text: "After 3 weeks of using the glow soap, my dark spots are visibly lighter. I get compliments every day. Genuinely the best investment I've made for my skin.",
     initials: 'CO',
   },
   {
